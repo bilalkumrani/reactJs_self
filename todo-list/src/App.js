@@ -1,5 +1,8 @@
 import { useState } from 'react';
 import TodoItem from './TodoItem';
+import './App.css'
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
 
 
 export default function App(){
@@ -15,6 +18,7 @@ function addItem(){
 }
 
 function changing(e){
+    if(e.target.value)
     setItem(e.target.value);
 }
 
@@ -32,8 +36,12 @@ function deleteItem(id){
         <div className='mainClass'>
         <div className='centerClass' >
         <h1>Todo List</h1> <br/>
-        <input type="text" name="item" id="item" onChange={changing} value={item}/>
-        <button onClick={addItem}>Add Item</button>
+        
+        <TextField type="text"  name="item" id="item" onChange={changing} value={item} />
+
+        <Button onClick={addItem} variant="contained" color="primary">
+        Primary
+      </Button>
 
         <ol>
 
