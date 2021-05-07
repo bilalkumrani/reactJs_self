@@ -3,6 +3,7 @@ import TodoItem from './TodoItem';
 import './App.css'
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
+import AddIcon from '@material-ui/icons/Add';
 
 
 export default function App(){
@@ -12,13 +13,14 @@ const [listOfItems,setListOfItems] = useState([]);
 function addItem(){
 
     setListOfItems((preVal)=>{
-        return ( [...preVal,item] );
+        if(item)
+            return ( [...preVal,item] );
+        return ( [...preVal] );
     });
     setItem('');
 }
 
 function changing(e){
-    if(e.target.value)
     setItem(e.target.value);
 }
 
@@ -40,7 +42,7 @@ function deleteItem(id){
         <TextField type="text"  name="item" id="item" onChange={changing} value={item} />
 
         <Button onClick={addItem} variant="contained" color="primary">
-        Primary
+        <AddIcon />
       </Button>
 
         <ol>

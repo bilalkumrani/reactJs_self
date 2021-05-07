@@ -10,3 +10,6 @@
 #item{
   margin: 10px;
 }
+.crossed{
+  text-decoration: line-through;
+}
