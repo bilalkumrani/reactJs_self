@@ -52,7 +52,11 @@ function deleteItem(id){
 
                     return (
                         <>
+                        <ol>
+                        <li className="Ulist">
                            <TodoItem text={val} key={index} id={index} onSelect={deleteItem}/>
+                        </li>
+                        </ol>
                         </>
 
                     );
