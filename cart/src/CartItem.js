@@ -2,9 +2,25 @@ import React from 'react'
 
 
 class CartItem extends React.Component {
+    constructor(){
+        super()
+        this.state={
+            price:99,
+            title: 'Mobile phone',
+            qty: 1,
+            img: ''
+        }
+        
+    }
 
+  increaseQty = () =>{
+        console.log(this.state)
+    }
+    
     render()
     {
+
+        const { price, title, qty, img }  = this.state;
         return(
 
             <div className="CartItem" >
@@ -13,12 +29,13 @@ class CartItem extends React.Component {
                 </div>
 
                 <div className="right-block">
-                    <div>laptop</div>
-                    <div>99</div>
-                    <div>1</div>
+                    <div>{title}</div>
+                    <div>{price}</div>
+                    <div>{qty}</div>
                     <div className='cart-item-action'>
-                    <button>+</button>
+                    <button onClick={this.increaseQty}>+</button>
                     <button>-</button>
+                    <button>delete</button>
                     </div>
                 </div>
             </div>
@@ -32,8 +49,9 @@ const styles = {
     image:{
         height: 110,
         width : 110,
-        borderRadius: 4,
-        display: 'inline'
+        borderRadius: 10,
+        display: 'inline',
+        backgroundColor : '#ccc',
 
     }
 }
