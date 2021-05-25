@@ -4,12 +4,7 @@ import React from 'react'
 class CartItem extends React.Component {
     constructor(){
         super()
-        this.state={
-            price:99,
-            title: 'Mobile phone',
-            qty: 1,
-            img: ''
-        }
+        
         
     }
 
@@ -36,6 +31,9 @@ class CartItem extends React.Component {
 
     decreseQty = () =>{
 
+        if(this.state.qty===0){
+            return
+        }
         this.setState((preState)=>{
 
             return {
@@ -46,8 +44,8 @@ class CartItem extends React.Component {
     
     render()
     {
-
-        const { price, title, qty, img }  = this.state;
+        
+        const { price, title, qty, }  = this.props.product;
         return(
 
             <div className="CartItem" >
