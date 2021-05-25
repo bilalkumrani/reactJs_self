@@ -2,11 +2,7 @@ import React from 'react'
 
 
 class CartItem extends React.Component {
-    constructor(){
-        super()
-        
-        
-    }
+   
 
   increaseQty = () =>{
         // if we directly increse the value of qty the value of qty in object will be incresed but react will dont know about it and it will not re render it so for that we use setState() function that is in React.Component, there are two ways to use it. following are the ways:
@@ -58,9 +54,9 @@ class CartItem extends React.Component {
                     <div>{price}</div>
                     <div>{qty}</div>
                     <div className='cart-item-action'>
-                    <button onClick={this.increaseQty}>+</button>
-                    <button onClick={this.decreseQty}>-</button>
-                    <button>delete</button>
+                    <button onClick={()=>this.props.onQtyInc(this.props.product)}>+</button>
+                    <button onClick={()=>this.props.onQtyDec(this.props.product)}>-</button>
+                    <button onClick={()=>this.props.onDelete(this.props.product.id)}>delete</button>
                     </div>
                 </div>
             </div>
